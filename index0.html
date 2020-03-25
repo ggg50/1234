@@ -11,6 +11,7 @@
       <script>
 axios({
         url: 'https://ggg50.github.io/1234/ok.xlsx',
+        headers: { 'Accept': 'application/vnd.ms-excel' },
         method: 'get',
         
     })
@@ -19,7 +20,7 @@ axios({
         var fileLink = document.createElement('a');
 
         fileLink.href = fileURL;
-        fileLink.setAttribute('download', '批量网络仲裁申请要素模板.xlsx');
+        fileLink.setAttribute('download', '123.xlsx');
         document.body.appendChild(fileLink);
 
         fileLink.click();
