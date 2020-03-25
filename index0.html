@@ -10,20 +10,24 @@
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <script>
 axios({
+        // url: api.batchTemplate,
         url: 'https://ggg50.github.io/1234/ok.xlsx',
-        headers: { 'Accept': 'application/vnd.ms-excel' },
+        responseType: 'blob',
+        // headers: { 
+        //     'Content-Disposition': 'attachment;filename=report.xls' ,
+        //     'Content-type': "application/vnd.ms-excel"
+        // },
+        
         method: 'get',
         
     })
     .then((response) => {
-        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
-        var fileLink = document.createElement('a');
-
-        fileLink.href = fileURL;
-        fileLink.setAttribute('download', '123.xlsx');
-        document.body.appendChild(fileLink);
-
-        fileLink.click();
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'file.xlsx'); //or any other extension
+        document.body.appendChild(link);
+        link.click();
    });
 
       </script>
